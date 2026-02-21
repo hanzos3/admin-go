@@ -1,8 +1,8 @@
 //go:build ignore
 
-// Copyright (c) 2015-2023 MinIO, Inc.
+// Copyright (c) 2015-2023 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -33,12 +33,12 @@ func main() {
 	// dummy values, please replace them with original values.
 
 	// API requests are secure (HTTPS) if secure=true and insecure (HTTP) otherwise.
-	// New returns an MinIO Admin client object.
-	madmClnt, err := madmin.New("your-minio.example.com:9000", "YOUR-ACCESSKEYID", "YOUR-SECRETACCESSKEY", true)
+	// New returns a Hanzo S3 Admin client object.
+	madmClnt, err := madmin.New("your-s3.example.com:9000", "YOUR-ACCESSKEYID", "YOUR-SECRETACCESSKEY", true)
 	if err != nil {
 		log.Fatalln(err)
 	}
-	// Print most recent failures for replication across all nodes in a minio cluster.
+	// Print most recent failures for replication across all nodes in a Hanzo S3 cluster.
 	mrfCh := madmClnt.BucketReplicationMRF(context.Background(), "my-bucketname", "all")
 	for m := range mrfCh {
 		if m.Err != "" {

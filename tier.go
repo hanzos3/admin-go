@@ -1,7 +1,7 @@
 //
-// Copyright (c) 2015-2024 MinIO, Inc.
+// Copyright (c) 2015-2024 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -33,7 +33,7 @@ import (
 // tierAPI is API path prefix for tier related admin APIs
 const tierAPI = "tier"
 
-// AddTierIgnoreInUse adds a new remote tier, ignoring if it's being used by another MinIO deployment.
+// AddTierIgnoreInUse adds a new remote tier, ignoring if it's being used by another Hanzo S3 deployment.
 func (adm *AdminClient) AddTierIgnoreInUse(ctx context.Context, cfg *TierConfig) error {
 	return adm.addTier(ctx, cfg, true)
 }

@@ -1,7 +1,7 @@
 //
-// Copyright (c) 2015-2025 MinIO, Inc.
+// Copyright (c) 2015-2025 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -90,7 +90,7 @@ type Node struct {
 //msgp:ignore ClusterInfoOpts
 type ClusterInfoOpts struct{}
 
-// ClusterInfo - Connect to a minio server and call Server Admin Info Management API
+// ClusterInfo - Connect to a Hanzo S3 server and call Server Admin Info Management API
 // to fetch server's information represented by infoMessage structure
 func (adm *AdminClient) ClusterInfo(ctx context.Context, options ...func(*ClusterInfoOpts)) (ClusterInfo, error) {
 	srvOpts := &ClusterInfoOpts{}

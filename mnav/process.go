@@ -1,6 +1,6 @@
-// Copyright (c) 2015-2025 MinIO, Inc.
+// Copyright (c) 2015-2025 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -73,7 +73,7 @@ func (node *ProcessMetricsNode) GetLeafData() map[string]string {
 	if node.process.Nodes > 0 {
 		data["Cluster Status"] = fmt.Sprintf("%s nodes reporting", humanize.Comma(int64(node.process.Nodes)))
 		if node.process.Count > 0 {
-			data["Total Processes"] = fmt.Sprintf("%s MinIO processes", humanize.Comma(int64(node.process.Count)))
+			data["Total Processes"] = fmt.Sprintf("%s Hanzo S3 processes", humanize.Comma(int64(node.process.Count)))
 		}
 	}
 

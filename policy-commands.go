@@ -1,7 +1,7 @@
 //
-// Copyright (c) 2015-2024 MinIO, Inc.
+// Copyright (c) 2015-2024 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -206,11 +206,11 @@ func (adm *AdminClient) attachOrDetachPolicyBuiltin(ctx context.Context, isAttac
 		return PolicyAssociationResp{}, err
 	}
 
-	// Older minio does not send a response, so we handle that case.
+	// Older server does not send a response, so we handle that case.
 
 	switch resp.StatusCode {
 	case http.StatusOK:
-		// Newer/current minio sends a result.
+		// Newer/current server sends a result.
 		content, err := DecryptData(adm.getSecretKey(), resp.Body)
 		if err != nil {
 			return PolicyAssociationResp{}, err
@@ -221,8 +221,8 @@ func (adm *AdminClient) attachOrDetachPolicyBuiltin(ctx context.Context, isAttac
 		return rsp, err
 
 	case http.StatusCreated, http.StatusNoContent:
-		// Older minio - no result sent. TODO(aditya): Remove this case after
-		// newer minio is released.
+		// Older server - no result sent. TODO(aditya): Remove this case after
+		// newer server is released.
 		return PolicyAssociationResp{}, nil
 
 	default:
@@ -318,7 +318,7 @@ func (r *RemoveAzureCannedPolicyReq) Validate() error {
 // ListAzureCannedPoliciesReq represents a request to list Azure canned policies.
 type ListAzureCannedPoliciesReq struct {
 	ConfigName  string
-	GetAllUUIDs bool // whether to also get policies that exist in MinIO but not in Azure
+	GetAllUUIDs bool // whether to also get policies that exist in Hanzo S3 but not in Azure
 }
 
 func (r *ListAzureCannedPoliciesReq) Validate() error {

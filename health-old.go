@@ -1,7 +1,7 @@
 //
-// Copyright (c) 2015-2024 MinIO, Inc.
+// Copyright (c) 2015-2024 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -32,7 +32,7 @@ import (
 	"github.com/shirou/gopsutil/v4/sensors"
 )
 
-// HealthInfoV0 - MinIO cluster's health Info version 0
+// HealthInfoV0 - Hanzo S3 cluster's health Info version 0
 type HealthInfoV0 struct {
 	TimeStamp time.Time         `json:"timestamp,omitempty"`
 	Error     string            `json:"error,omitempty"`
@@ -41,7 +41,7 @@ type HealthInfoV0 struct {
 	Sys       SysHealthInfo     `json:"sys,omitempty"`
 }
 
-// HealthInfoV2 - MinIO cluster's health Info version 2
+// HealthInfoV2 - Hanzo S3 cluster's health Info version 2
 type HealthInfoV2 struct {
 	Version string `json:"version"`
 	Error   string `json:"error,omitempty"`
@@ -139,7 +139,7 @@ type NetPerfInfo struct {
 	RemotePeers []PeerNetPerfInfo `json:"remote_peers,omitempty"`
 }
 
-// PerfInfo - Includes Drive and Net perf info for the entire MinIO cluster
+// PerfInfo - Includes Drive and Net perf info for the entire Hanzo S3 cluster
 type PerfInfo struct {
 	Drives      []DrivePerfInfos `json:"drives,omitempty"`
 	Net         []NetPerfInfo    `json:"net,omitempty"`
@@ -163,7 +163,7 @@ func (info HealthInfoV0) JSON() string {
 	return string(data)
 }
 
-// SysHealthInfo - Includes hardware and system information of the MinIO cluster
+// SysHealthInfo - Includes hardware and system information of the Hanzo S3 cluster
 type SysHealthInfo struct {
 	CPUInfo    []ServerCPUInfo    `json:"cpus,omitempty"`
 	DiskHwInfo []ServerDiskHwInfo `json:"drives,omitempty"`
@@ -234,7 +234,7 @@ type ServerOsInfo struct {
 	Error   string                    `json:"error,omitempty"`
 }
 
-// ServerCPUInfo - Includes cpu and timer stats of each node of the MinIO cluster
+// ServerCPUInfo - Includes cpu and timer stats of each node of the Hanzo S3 cluster
 type ServerCPUInfo struct {
 	Addr     string          `json:"addr"`
 	CPUStat  []cpu.InfoStat  `json:"cpu,omitempty"`
@@ -242,7 +242,7 @@ type ServerCPUInfo struct {
 	Error    string          `json:"error,omitempty"`
 }
 
-// MinioHealthInfoV0 - Includes MinIO confifuration information
+// MinioHealthInfoV0 - Includes Hanzo S3 configuration information
 type MinioHealthInfoV0 struct {
 	Info   InfoMessage `json:"info,omitempty"`
 	Config interface{} `json:"config,omitempty"`
@@ -347,7 +347,7 @@ type PartitionStat struct {
 	SmartInfo  SmartInfo `json:"smartInfo,omitempty"`
 }
 
-// PerfInfoV0 - Includes Drive and Net perf info for the entire MinIO cluster
+// PerfInfoV0 - Includes Drive and Net perf info for the entire Hanzo S3 cluster
 type PerfInfoV0 struct {
 	DriveInfo   []ServerDrivesInfo    `json:"drives,omitempty"`
 	Net         []ServerNetHealthInfo `json:"net,omitempty"`
@@ -355,7 +355,7 @@ type PerfInfoV0 struct {
 	Error       string                `json:"error,omitempty"`
 }
 
-// ServerDrivesInfo - Drive info about all drives in a single MinIO node
+// ServerDrivesInfo - Drive info about all drives in a single Hanzo S3 node
 type ServerDrivesInfo struct {
 	Addr     string            `json:"addr"`
 	Serial   []DrivePerfInfoV0 `json:"serial,omitempty"`   // Drive perf info collected one drive at a time
@@ -383,7 +383,7 @@ type DiskThroughput struct {
 	Max          float64 `json:"max_bytes_per_sec,omitempty"`
 }
 
-// DrivePerfInfoV0 - Stats about a single drive in a MinIO node
+// DrivePerfInfoV0 - Stats about a single drive in a Hanzo S3 node
 type DrivePerfInfoV0 struct {
 	Path       string         `json:"endpoint"`
 	Latency    DiskLatency    `json:"latency,omitempty"`
@@ -391,7 +391,7 @@ type DrivePerfInfoV0 struct {
 	Error      string         `json:"error,omitempty"`
 }
 
-// ServerNetHealthInfo - Network health info about a single MinIO node
+// ServerNetHealthInfo - Network health info about a single Hanzo S3 node
 type ServerNetHealthInfo struct {
 	Addr  string          `json:"addr"`
 	Net   []NetPerfInfoV0 `json:"net,omitempty"`
@@ -418,7 +418,7 @@ type NetThroughput struct {
 	Max          float64 `json:"max_bytes_per_sec,omitempty"`
 }
 
-// NetPerfInfoV0 - one-to-one network connectivity Stats between 2 MinIO nodes
+// NetPerfInfoV0 - one-to-one network connectivity Stats between 2 Hanzo S3 nodes
 type NetPerfInfoV0 struct {
 	Addr       string        `json:"remote"`
 	Latency    NetLatency    `json:"latency,omitempty"`

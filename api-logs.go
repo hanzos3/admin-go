@@ -1,7 +1,7 @@
 //
-// Copyright (c) 2015-2025 MinIO, Inc.
+// Copyright (c) 2015-2025 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -45,7 +45,7 @@ type APILogOpts struct {
 	MaxPerNode int           `json:"maxPerNode,omitempty"`
 }
 
-// GetAPILogs fetches the persisted API logs from MinIO
+// GetAPILogs fetches the persisted API logs from Hanzo S3
 func (adm AdminClient) GetAPILogs(ctx context.Context, opts APILogOpts) iter.Seq2[log.API, error] {
 	return func(yield func(log.API, error) bool) {
 		apiOpts, err := json.Marshal(opts)

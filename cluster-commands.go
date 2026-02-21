@@ -1,7 +1,7 @@
 //
-// Copyright (c) 2015-2024 MinIO, Inc.
+// Copyright (c) 2015-2024 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -194,7 +194,7 @@ func (s SyncStatus) Empty() bool {
 	return s != SyncDisabled && s != SyncEnabled
 }
 
-// SRPeerJoin - used only by minio server to send SR join requests to peer
+// SRPeerJoin - used only by Hanzo S3 server to send SR join requests to peer
 // servers.
 func (adm *AdminClient) SRPeerJoin(ctx context.Context, r SRPeerJoinReq) error {
 	b, err := json.Marshal(r)
@@ -1074,7 +1074,7 @@ func (adm *AdminClient) SiteReplicationEdit(ctx context.Context, site PeerInfo, 
 	return res, err
 }
 
-// SRPeerEdit - used only by minio server to update peer endpoint
+// SRPeerEdit - used only by Hanzo S3 server to update peer endpoint
 // for a server already in the site replication setup
 func (adm *AdminClient) SRPeerEdit(ctx context.Context, pi PeerInfo) error {
 	b, err := json.Marshal(pi)
@@ -1104,7 +1104,7 @@ func (adm *AdminClient) SRPeerEdit(ctx context.Context, pi PeerInfo) error {
 	return nil
 }
 
-// SRStateEdit - used only by minio server to update peer state
+// SRStateEdit - used only by Hanzo S3 server to update peer state
 // for a server already in the site replication setup
 func (adm *AdminClient) SRStateEdit(ctx context.Context, state SRStateEditReq) error {
 	b, err := json.Marshal(state)
@@ -1163,7 +1163,7 @@ func (adm *AdminClient) SiteReplicationRemove(ctx context.Context, removeReq SRR
 	return res, err
 }
 
-// SRPeerRemove - used only by minio server to unlink cluster replication
+// SRPeerRemove - used only by Hanzo S3 server to unlink cluster replication
 // for a server already in the site replication setup
 func (adm *AdminClient) SRPeerRemove(ctx context.Context, removeReq SRRemoveReq) (st ReplicateRemoveStatus, err error) {
 	reqBytes, err := json.Marshal(removeReq)

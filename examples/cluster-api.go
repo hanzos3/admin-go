@@ -2,9 +2,9 @@
 //go:build ignore
 
 //
-// Copyright (c) 2015-2022 MinIO, Inc.
+// Copyright (c) 2015-2022 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as

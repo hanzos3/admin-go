@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is the MinIO Admin Golang Client SDK (`github.com/minio/madmin-go/v4`), which provides APIs to manage MinIO services. It's a Go library that enables programmatic administration of MinIO object storage clusters.
+This is the Hanzo S3 Admin Go SDK (`github.com/minio/madmin-go/v4`), which provides APIs to manage Hanzo S3 services. It's a Go library that enables programmatic administration of Hanzo S3 object storage clusters.
 
 ## Development Commands
 
@@ -38,7 +38,7 @@ This is the MinIO Admin Golang Client SDK (`github.com/minio/madmin-go/v4`), whi
 ### Core Client Structure
 
 - **`AdminClient`** (`api.go`): Main client struct that implements Amazon S3 compatible admin methods
-- **Authentication**: Uses MinIO credentials with signature-based authentication via `minio-go/v7`
+- **Authentication**: Uses Hanzo S3 credentials with signature-based authentication via `minio-go/v7`
 - **Transport**: HTTP client with configurable timeouts, retries, and TLS settings
 
 ### Command Categories

@@ -1,7 +1,7 @@
 //
-// Copyright (c) 2015-2024 MinIO, Inc.
+// Copyright (c) 2015-2024 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -86,9 +86,9 @@ const (
 // User Agent should always following the below style.
 // Please open an issue to discuss any new changes here.
 //
-//	MinIO (OS; ARCH) LIB/VER APP/VER
+//	HanzoS3 (OS; ARCH) LIB/VER APP/VER
 const (
-	libraryUserAgentPrefix = "MinIO (" + runtime.GOOS + "; " + runtime.GOARCH + ") "
+	libraryUserAgentPrefix = "HanzoS3 (" + runtime.GOOS + "; " + runtime.GOARCH + ") "
 	libraryUserAgent       = libraryUserAgentPrefix + libraryName + "/" + libraryVersion
 )
 
@@ -100,7 +100,7 @@ type Options struct {
 	// Add future fields here
 }
 
-// New - instantiate minio admin client
+// New - instantiate Hanzo S3 admin client
 //
 // Deprecated: please use NewWithOptions
 func New(endpoint string, accessKeyID, secretAccessKey string, secure bool) (*AdminClient, error) {
@@ -113,7 +113,7 @@ func New(endpoint string, accessKeyID, secretAccessKey string, secure bool) (*Ad
 	return clnt, nil
 }
 
-// NewWithOptions - instantiate minio admin client with options.
+// NewWithOptions - instantiate Hanzo S3 admin client with options.
 func NewWithOptions(endpoint string, opts *Options) (*AdminClient, error) {
 	clnt, err := privateNew(endpoint, opts)
 	if err != nil {

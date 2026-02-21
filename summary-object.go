@@ -1,6 +1,6 @@
-// Copyright (c) 2015-2025 MinIO, Inc.
+// Copyright (c) 2015-2025 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -37,7 +37,7 @@ type ObjectSummaryOptions struct {
 	Bitrot bool
 }
 
-// ObjectSummary calls minio to search for all files and parts
+// ObjectSummary calls Hanzo S3 to search for all files and parts
 // related to the given object, across all disks.
 func (adm *AdminClient) ObjectSummary(ctx context.Context, objOpts ObjectSummaryOptions) (objectSummary *ObjectSummary, err error) {
 	form := make(url.Values)
@@ -78,7 +78,7 @@ func (adm *AdminClient) ObjectSummary(ctx context.Context, objOpts ObjectSummary
 	return objectSummary, err
 }
 
-// ObjectMetaSummary is returned from minio when calling ObjectSummary
+// ObjectMetaSummary is returned from Hanzo S3 when calling ObjectSummary
 // This struct gives specific information about xl.meta files
 // belonging to the object being inspected by the ObjectSummary API.
 type ObjectMetaSummary struct {
@@ -94,7 +94,7 @@ type ObjectMetaSummary struct {
 	Set            int
 }
 
-// ObjectPartSummary is returned from minio when calling ObjectSummary.
+// ObjectPartSummary is returned from Hanzo S3 when calling ObjectSummary.
 // This struct gives specific information about each part of the object
 // being inspected by the ObjectSummary API.
 type ObjectPartSummary struct {
@@ -107,7 +107,7 @@ type ObjectPartSummary struct {
 	Size     int64
 }
 
-// ObjectUnknownSummary is returned from minio when calling ObjectSummary.
+// ObjectUnknownSummary is returned from Hanzo S3 when calling ObjectSummary.
 // This struct contains information about files that are not part of any object structure.
 type ObjectUnknownSummary struct {
 	Pool     int
@@ -120,7 +120,7 @@ type ObjectUnknownSummary struct {
 	Err      string
 }
 
-// ObjectVersionSummary is returned from minio when calling ObjectSummary.
+// ObjectVersionSummary is returned from Hanzo S3 when calling ObjectSummary.
 // This struct contains information on a single version.
 type ObjectVersionSummary struct {
 	DeleteMarker bool
@@ -134,7 +134,7 @@ type ObjectVersionSummary struct {
 	ParityBlocks int
 }
 
-// ObjectBitrotSummary is returned from minio when calling ObjectSummary.
+// ObjectBitrotSummary is returned from Hanzo S3 when calling ObjectSummary.
 // This struct contains bitrot information for and object on a specific host and drive.
 type ObjectBitrotSummary struct {
 	Host  string
@@ -142,7 +142,7 @@ type ObjectBitrotSummary struct {
 	Parts []int
 }
 
-// ObjectSummary is returned from minio when calling ObjectSummary.
+// ObjectSummary is returned from Hanzo S3 when calling ObjectSummary.
 type ObjectSummary struct {
 	Name   string
 	Errors []string

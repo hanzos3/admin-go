@@ -1,7 +1,7 @@
 //
-// Copyright (c) 2015-2024 MinIO, Inc.
+// Copyright (c) 2015-2024 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -35,9 +35,9 @@ import (
 //go:generate msgp -d clearomitted -d "timezone utc" -file $GOFILE
 
 var (
-	// MinIO only supports last two versions
+	// Hanzo S3 only supports last two versions
 	// you can force an application by setting env MADMIN_API_VERSION=v3 if you want the
-	// library to start using v3, which would allow the application to work with MinIO
+	// library to start using v3, which would allow the application to work with Hanzo S3
 	// servers that are not yet upgraded to v4 Admin API
 
 	// AdminAPIVersion - admin api version used in the request.
@@ -55,7 +55,7 @@ var (
 	adminAPIOldPrefix = "/v3"
 
 	// kmsAPIVersion - is the latest KMS API version, for KMS requests.
-	// NOTE: MinIO only supports last two versions
+	// NOTE: Hanzo S3 only supports last two versions
 	kmsAPIVersion = "v1"
 
 	// kms API version prefix

@@ -1,7 +1,7 @@
 //
-// Copyright (c) 2015-2024 MinIO, Inc.
+// Copyright (c) 2015-2024 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -52,7 +52,7 @@ type DriveSpeedTestOpts struct {
 	FileSize  uint64 // Total fileSize to write and read (default 1GiB)
 }
 
-// DriveSpeedtest - perform drive speedtest on the MinIO servers
+// DriveSpeedtest - perform drive speedtest on the Hanzo S3 servers
 func (adm *AdminClient) DriveSpeedtest(ctx context.Context, opts DriveSpeedTestOpts) (chan DriveSpeedTestResult, error) {
 	queryVals := make(url.Values)
 	if opts.Serial {

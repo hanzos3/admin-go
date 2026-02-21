@@ -1,7 +1,7 @@
 //
-// Copyright (c) 2015-2024 MinIO, Inc.
+// Copyright (c) 2015-2024 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -28,7 +28,7 @@ import (
 )
 
 // KMSStatus contains various informations about
-// the KMS connected to a MinIO server - like
+// the KMS connected to a Hanzo S3 server - like
 // the KMS endpoints and the default key ID.
 type KMSStatus struct {
 	Name         string               `json:"name"`           // Name or type of the KMS
@@ -129,7 +129,7 @@ type KMSMetrics struct {
 	StackAlloc  int64 `json:"kes_system_mem_stack_used"`
 }
 
-// EnableKMS enables the internal builtin KMS on a MinIO cluster.
+// EnableKMS enables the internal builtin KMS on a Hanzo S3 cluster.
 // It returns an error if the builtin KMS is already enabled.
 func (adm *AdminClient) EnableKMS(ctx context.Context) error {
 	// POST /minio/kms/v1/enable
@@ -156,7 +156,7 @@ type KMSVersion struct {
 }
 
 // KMSStatus returns status information about the KMS connected
-// to the MinIO server, if configured.
+// to the Hanzo S3 server, if configured.
 func (adm *AdminClient) KMSStatus(ctx context.Context) (KMSStatus, error) {
 	// GET /minio/kms/v1/status
 	resp, err := adm.doKMSRequest(ctx, "/status", http.MethodGet, nil, map[string]string{})
@@ -175,7 +175,7 @@ func (adm *AdminClient) KMSStatus(ctx context.Context) (KMSStatus, error) {
 }
 
 // KMSMetrics returns metrics about the KMS connected
-// to the MinIO server, if configured.
+// to the Hanzo S3 server, if configured.
 func (adm *AdminClient) KMSMetrics(ctx context.Context) (*KMSMetrics, error) {
 	// GET /minio/kms/v1/metrics
 	resp, err := adm.doKMSRequest(ctx, "/metrics", http.MethodGet, nil, map[string]string{})
@@ -194,7 +194,7 @@ func (adm *AdminClient) KMSMetrics(ctx context.Context) (*KMSMetrics, error) {
 }
 
 // KMSAPIs returns a list of supported API endpoints in the KMS connected
-// to the MinIO server, if configured.
+// to the Hanzo S3 server, if configured.
 func (adm *AdminClient) KMSAPIs(ctx context.Context) ([]KMSAPI, error) {
 	// GET /minio/kms/v1/apis
 	resp, err := adm.doKMSRequest(ctx, "/apis", http.MethodGet, nil, map[string]string{})
@@ -213,7 +213,7 @@ func (adm *AdminClient) KMSAPIs(ctx context.Context) ([]KMSAPI, error) {
 }
 
 // KMSVersion returns a list of supported API endpoints in the KMS connected
-// to the MinIO server, if configured.
+// to the Hanzo S3 server, if configured.
 func (adm *AdminClient) KMSVersion(ctx context.Context) (*KMSVersion, error) {
 	// GET /minio/kms/v1/version
 	resp, err := adm.doKMSRequest(ctx, "/version", http.MethodGet, nil, map[string]string{})
@@ -232,7 +232,7 @@ func (adm *AdminClient) KMSVersion(ctx context.Context) (*KMSVersion, error) {
 }
 
 // CreateKey tries to create a new master key with the given keyID
-// at the KMS connected to a MinIO server.
+// at the KMS connected to a Hanzo S3 server.
 func (adm *AdminClient) CreateKey(ctx context.Context, keyID string) error {
 	// POST /minio/kms/v1/key/create?key-id=<keyID>
 	resp, err := adm.doKMSRequest(ctx, "/key/create", http.MethodPost, nil, map[string]string{"key-id": keyID})
@@ -247,7 +247,7 @@ func (adm *AdminClient) CreateKey(ctx context.Context, keyID string) error {
 }
 
 // RotateKey creates a new version of the master key with the given key ID\
-// at a MinIO cluster.
+// at a Hanzo S3 cluster.
 func (adm *AdminClient) RotateKey(ctx context.Context, keyID string) error {
 	// POST /minio/kms/v1/key/rotate?key-id=<keyID>
 	queries := map[string]string{}
@@ -266,7 +266,7 @@ func (adm *AdminClient) RotateKey(ctx context.Context, keyID string) error {
 }
 
 // DeleteKey tries to delete a key with the given keyID
-// at the KMS connected to a MinIO server.
+// at the KMS connected to a Hanzo S3 server.
 func (adm *AdminClient) DeleteKey(ctx context.Context, keyID string) error {
 	// DELETE /minio/kms/v1/key/delete?key-id=<keyID>
 	resp, err := adm.doKMSRequest(ctx, "/key/delete", http.MethodDelete, nil, map[string]string{"key-id": keyID})
@@ -281,7 +281,7 @@ func (adm *AdminClient) DeleteKey(ctx context.Context, keyID string) error {
 }
 
 // ImportKey tries to import a cryptographic key
-// at the KMS connected to a MinIO server.
+// at the KMS connected to a Hanzo S3 server.
 func (adm *AdminClient) ImportKey(ctx context.Context, keyID string, content []byte) error {
 	// POST /minio/kms/v1/key/import?key-id=<keyID>
 	resp, err := adm.doKMSRequest(ctx, "/key/import", http.MethodPost, content, map[string]string{"key-id": keyID})
@@ -314,7 +314,7 @@ func (adm *AdminClient) ListKeys(ctx context.Context, pattern string) ([]KMSKeyI
 }
 
 // GetKeyStatus requests status information about the key referenced by keyID
-// from the KMS connected to a MinIO by performing a Admin-API request.
+// from the KMS connected to a Hanzo S3 server by performing a Admin-API request.
 // It basically hits the `/minio/admin/v4/kms/key/status` API endpoint.
 func (adm *AdminClient) GetKeyStatus(ctx context.Context, keyID string) (*KMSKeyStatus, error) {
 	// GET /minio/kms/v1/key/status?key-id=<keyID>
@@ -334,8 +334,8 @@ func (adm *AdminClient) GetKeyStatus(ctx context.Context, keyID string) (*KMSKey
 }
 
 // KMSKeyStatus contains some status information about a KMS master key.
-// The MinIO server tries to access the KMS and perform encryption and
-// decryption operations. If the MinIO server can access the KMS and
+// The Hanzo S3 server tries to access the KMS and perform encryption and
+// decryption operations. If the Hanzo S3 server can access the KMS and
 // all master key operations succeed it returns a status containing only
 // the master key ID but no error.
 type KMSKeyStatus struct {
@@ -346,7 +346,7 @@ type KMSKeyStatus struct {
 }
 
 // SetKMSPolicy tries to create or update a policy
-// at the KMS connected to a MinIO server.
+// at the KMS connected to a Hanzo S3 server.
 func (adm *AdminClient) SetKMSPolicy(ctx context.Context, policy string, content []byte) error {
 	// POST /minio/kms/v1/policy/set?policy=<policy>
 	resp, err := adm.doKMSRequest(ctx, "/policy/set", http.MethodPost, content, map[string]string{"policy": policy})
@@ -361,7 +361,7 @@ func (adm *AdminClient) SetKMSPolicy(ctx context.Context, policy string, content
 }
 
 // AssignPolicy tries to assign a policy to an identity
-// at the KMS connected to a MinIO server.
+// at the KMS connected to a Hanzo S3 server.
 func (adm *AdminClient) AssignPolicy(ctx context.Context, policy string, content []byte) error {
 	// POST /minio/kms/v1/policy/assign?policy=<policy>
 	resp, err := adm.doKMSRequest(ctx, "/policy/assign", http.MethodPost, content, map[string]string{"policy": policy})
@@ -430,7 +430,7 @@ func (adm *AdminClient) ListPolicies(ctx context.Context, pattern string) ([]KMS
 }
 
 // DeletePolicy tries to delete a policy
-// at the KMS connected to a MinIO server.
+// at the KMS connected to a Hanzo S3 server.
 func (adm *AdminClient) DeletePolicy(ctx context.Context, policy string) error {
 	// DELETE /minio/kms/v1/policy/delete?policy=<policy>
 	resp, err := adm.doKMSRequest(ctx, "/policy/delete", http.MethodDelete, nil, map[string]string{"policy": policy})
@@ -502,7 +502,7 @@ func (adm *AdminClient) ListIdentities(ctx context.Context, pattern string) ([]K
 }
 
 // DeleteIdentity tries to delete a identity
-// at the KMS connected to a MinIO server.
+// at the KMS connected to a Hanzo S3 server.
 func (adm *AdminClient) DeleteIdentity(ctx context.Context, identity string) error {
 	// DELETE /minio/kms/v1/identity/delete?identity=<identity>
 	resp, err := adm.doKMSRequest(ctx, "/identity/delete", http.MethodDelete, nil, map[string]string{"identity": identity})

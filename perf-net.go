@@ -1,7 +1,7 @@
 //
-// Copyright (c) 2015-2024 MinIO, Inc.
+// Copyright (c) 2015-2024 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -40,7 +40,7 @@ type NetperfResult struct {
 	NodeResults []NetperfNodeResult `json:"nodeResults"`
 }
 
-// Netperf - perform netperf on the MinIO servers
+// Netperf - perform netperf on the Hanzo S3 servers
 func (adm *AdminClient) Netperf(ctx context.Context, duration time.Duration) (result NetperfResult, err error) {
 	queryVals := make(url.Values)
 	queryVals.Set("duration", duration.String())

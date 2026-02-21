@@ -1,8 +1,8 @@
 //go:build ignore
 
-// Copyright (c) 2015-2022 MinIO, Inc.
+// Copyright (c) 2015-2022 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -29,9 +29,9 @@ import (
 
 func main() {
 	// API requests are secure (HTTPS) if secure=true and insecure (HTTPS) otherwise.
-	// NewAnonymousClient returns an anonymous MinIO Admin client object.
+	// NewAnonymousClient returns an anonymous Hanzo S3 Admin client object.
 	// Anonymous client doesn't require any credentials
-	madmAnonClnt, err := madmin.NewAnonymousClient("your-minio.example.com:9000", true)
+	madmAnonClnt, err := madmin.NewAnonymousClient("your-s3.example.com:9000", true)
 	if err != nil {
 		log.Fatalln(err)
 	}

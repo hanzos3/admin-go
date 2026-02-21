@@ -1,7 +1,7 @@
 //
-// Copyright (c) 2015-2024 MinIO, Inc.
+// Copyright (c) 2015-2024 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -83,7 +83,7 @@ const (
 	MinClientPerfTimeout = time.Second * 5
 )
 
-// ClientPerf - perform net from client to MinIO servers
+// ClientPerf - perform net from client to Hanzo S3 servers
 func (adm *AdminClient) ClientPerf(ctx context.Context, dur time.Duration) (result ClientPerfResult, err error) {
 	if dur > MaxClientPerfTimeout {
 		dur = MaxClientPerfTimeout

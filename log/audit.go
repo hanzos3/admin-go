@@ -1,6 +1,6 @@
-// Copyright (c) 2015-2025 MinIO, Inc.
+// Copyright (c) 2015-2025 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -112,7 +112,7 @@ type AuditDetails struct {
 }
 
 // Audit represents the user triggered audit events.
-// It captures administrative operations performed on the MinIO cluster with contextual metadata.
+// It captures administrative operations performed on the Hanzo S3 cluster with contextual metadata.
 type Audit struct {
 	Version    string                 `json:"version"`
 	Time       time.Time              `json:"time"`
@@ -228,7 +228,7 @@ type BucketConfigAuditDetails struct {
 func (b *BucketConfigAuditDetails) Redact() {}
 
 // ServiceAuditDetails captures service operation details.
-// It tracks MinIO service operations like restart, update, IAM import/export, and cluster management actions.
+// It tracks Hanzo S3 service operations like restart, update, IAM import/export, and cluster management actions.
 type ServiceAuditDetails struct {
 	ServiceName string            `json:"serviceName,omitempty"`
 	Operation   string            `json:"operation,omitempty"`
@@ -397,7 +397,7 @@ type BucketInventoryAuditDetails struct {
 func (i *BucketInventoryAuditDetails) Redact() {}
 
 // TierAuditDetails captures tier configuration changes.
-// It tracks remote tier configurations for lifecycle transitions including S3, Azure, GCS, and MinIO tiers.
+// It tracks remote tier configurations for lifecycle transitions including S3, Azure, GCS, and Hanzo S3 tiers.
 type TierAuditDetails struct {
 	TierName string `json:"tierName"`
 	TierType string `json:"tierType,omitempty"`

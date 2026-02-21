@@ -1,7 +1,7 @@
 //
-// Copyright (c) 2015-2024 MinIO, Inc.
+// Copyright (c) 2015-2024 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -69,7 +69,7 @@ type ServerUpdateOpts struct {
 	ByNode              bool
 }
 
-// ServerUpdate - updates and restarts the MinIO cluster to latest version.
+// ServerUpdate - updates and restarts the Hanzo S3 cluster to latest version.
 // optionally takes an input URL to specify a custom update binary link
 func (adm *AdminClient) ServerUpdate(ctx context.Context, opts ServerUpdateOpts) (us ServerUpdateStatus, err error) {
 	queryValues := url.Values{}

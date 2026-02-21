@@ -1,7 +1,7 @@
 //
-// Copyright (c) 2015-2024 MinIO, Inc.
+// Copyright (c) 2015-2024 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -28,7 +28,7 @@ import (
 
 //msgp:tag json
 //go:generate msgp -d clearomitted -d "timezone utc"
-// LicenseInfo is a structure containing MinIO license information.
+// LicenseInfo is a structure containing Hanzo S3 license information.
 
 type LicenseInfo struct {
 	ID           string    `json:"ID"`           // The license ID

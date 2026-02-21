@@ -1,10 +1,10 @@
-# MinIO Metrics Navigation (mnav)
+# Hanzo S3 Metrics Navigation (mnav)
 
-The `mnav` package provides a tree-based navigation system for MinIO metrics, enabling interactive exploration of complex metric hierarchies. It transforms flat metric data structures from `madmin.RealtimeMetrics` into navigable tree interfaces with breadcrumbs, children listing, and detailed data views.
+The `mnav` package provides a tree-based navigation system for Hanzo S3 metrics, enabling interactive exploration of complex metric hierarchies. It transforms flat metric data structures from `madmin.RealtimeMetrics` into navigable tree interfaces with breadcrumbs, children listing, and detailed data views.
 
 ## Overview
 
-This package bridges the gap between MinIO's raw metrics API and user-friendly navigation interfaces. It's designed to support tools like Project Tricorder that need to present complex metric data in an organized, explorable format.
+This package bridges the gap between Hanzo S3's raw metrics API and user-friendly navigation interfaces. It's designed to support tools like Project Tricorder that need to present complex metric data in an organized, explorable format.
 
 ### Main Entry Point
 
@@ -76,7 +76,7 @@ madmin.RealtimeMetrics → NewRealtimeMetricsNavigator() → Root Navigator
 
 ### 1. Metric Collection
 
-The navigation system works with MinIO's real-time metrics API:
+The navigation system works with Hanzo S3's real-time metrics API:
 
 ```go
 // Collect metrics with required flags

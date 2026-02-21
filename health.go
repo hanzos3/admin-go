@@ -1,7 +1,7 @@
 //
-// Copyright (c) 2015-2025 MinIO, Inc.
+// Copyright (c) 2015-2025 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -115,14 +115,14 @@ type SysErrors struct {
 	Errors []string `json:"errors,omitempty"`
 }
 
-// SysServices - info about services that affect minio
+// SysServices - info about services that affect Hanzo S3
 type SysServices struct {
 	NodeCommon
 
 	Services []SysService `json:"services,omitempty"`
 }
 
-// SysConfig - info about services that affect minio
+// SysConfig - info about services that affect Hanzo S3
 type SysConfig struct {
 	NodeCommon
 
@@ -675,7 +675,7 @@ func GetOSInfo(ctx context.Context, addr string) OSInfo {
 }
 
 // GetSysConfig returns config values from the system
-// (only those affecting minio performance)
+// (only those affecting Hanzo S3 performance)
 func GetSysConfig(_ context.Context, addr string) SysConfig {
 	sc := SysConfig{
 		NodeCommon: NodeCommon{Addr: addr},
@@ -825,7 +825,7 @@ func GetProductInfo(addr string) ProductInfo {
 	}
 }
 
-// GetSysServices returns info of sys services that affect minio
+// GetSysServices returns info of sys services that affect Hanzo S3
 func GetSysServices(_ context.Context, addr string) SysServices {
 	ss := SysServices{
 		NodeCommon: NodeCommon{Addr: addr},
@@ -1023,7 +1023,7 @@ func aTob[a, b any](aa []a, conv func(item a) b) []b {
 	return bb
 }
 
-// GetProcInfo returns current MinIO process information.
+// GetProcInfo returns current Hanzo S3 process information.
 func GetProcInfo(ctx context.Context, addr string) ProcInfo {
 	pid := int32(syscall.Getpid())
 
@@ -1186,7 +1186,7 @@ func GetProcInfo(ctx context.Context, addr string) ProcInfo {
 		})
 	}
 
-	// In certain environments, it is not possible to get username e.g. minio-operator
+	// In certain environments, it is not possible to get username e.g. s3-operator
 	// Plus it's not a serious error. So ignore error if any.
 	procInfo.Username, err = proc.UsernameWithContext(ctx)
 	if err != nil {
@@ -1274,7 +1274,7 @@ func (p *ProcInfo) AddProcInfo(metrics *ProcessMetrics) {
 	addMemoryMaps(p.MemMaps, &metrics.MemMaps)
 }
 
-// SysInfo - Includes hardware and system information of the MinIO cluster
+// SysInfo - Includes hardware and system information of the Hanzo S3 cluster
 type SysInfo struct {
 	CPUInfo        []CPUs         `json:"cpus,omitempty"`
 	Partitions     []Partitions   `json:"partitions,omitempty"`
@@ -1329,7 +1329,7 @@ type KubernetesInfo struct {
 	Error      string          `json:"error,omitempty"`
 }
 
-// SpeedTestResults - Includes perf test results of the MinIO cluster
+// SpeedTestResults - Includes perf test results of the Hanzo S3 cluster
 type SpeedTestResults struct {
 	DrivePerf []DriveSpeedTestResult `json:"drive,omitempty"`
 	ObjPerf   []SpeedTestResult      `json:"obj,omitempty"`
@@ -1337,7 +1337,7 @@ type SpeedTestResults struct {
 	Error     string                 `json:"error,omitempty"`
 }
 
-// MinioConfig contains minio configuration of a node.
+// MinioConfig contains Hanzo S3 configuration of a node.
 type MinioConfig struct {
 	Error string `json:"error,omitempty"`
 
@@ -1365,7 +1365,7 @@ type ServerInfo struct {
 	APIVersion     *APIVersion       `json:"api_version,omitempty"`
 }
 
-// MinioInfo contains MinIO server and object storage information.
+// MinioInfo contains Hanzo S3 server and object storage information.
 type MinioInfo struct {
 	Mode         string           `json:"mode,omitempty"`
 	Domain       []string         `json:"domain,omitempty"`
@@ -1419,7 +1419,7 @@ type ShardsHealthInfo struct {
 	FailedWrites map[string]map[string][]uint64 `json:"failed_writes,omitempty"`
 }
 
-// MinioHealthInfo - Includes MinIO confifuration information
+// MinioHealthInfo - Includes Hanzo S3 configuration information
 type MinioHealthInfo struct {
 	Error string `json:"error,omitempty"`
 
@@ -1430,7 +1430,7 @@ type MinioHealthInfo struct {
 	ShardsHealth    *ShardsHealthInfo `json:"shards_health,omitempty"`
 }
 
-// HealthInfo - MinIO cluster's health Info
+// HealthInfo - Hanzo S3 cluster's health Info
 type HealthInfo struct {
 	Version string `json:"version"`
 	Error   string `json:"error,omitempty"`
@@ -1535,7 +1535,7 @@ type HealthInfoVersionStruct struct {
 	Error   string `json:"error,omitempty"`
 }
 
-// ServerHealthInfo - Connect to a minio server and call Health Info Management API
+// ServerHealthInfo - Connect to a Hanzo S3 server and call Health Info Management API
 // to fetch server's information represented by HealthInfo structure
 func (adm *AdminClient) ServerHealthInfo(ctx context.Context, types []HealthDataType, deadline time.Duration, anonymize string) (*http.Response, string, error) {
 	v := url.Values{}
@@ -1579,7 +1579,7 @@ func (adm *AdminClient) ServerHealthInfo(ctx context.Context, types []HealthData
 	case "", HealthInfoVersion2, HealthInfoVersion:
 	default:
 		closeResponse(resp)
-		return nil, "", errors.New("Upgrade Minio Client to support health info version " + version.Version)
+		return nil, "", errors.New("Upgrade Hanzo S3 Client to support health info version " + version.Version)
 	}
 
 	return resp, version.Version, nil

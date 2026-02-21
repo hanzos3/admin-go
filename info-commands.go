@@ -1,7 +1,7 @@
 //
-// Copyright (c) 2015-2025 MinIO, Inc.
+// Copyright (c) 2015-2025 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -126,7 +126,7 @@ func (d1 BackendDisks) Merge(d2 BackendDisks) BackendDisks {
 	return merged
 }
 
-// StorageInfo - Connect to a minio server and call Storage Info Management API
+// StorageInfo - Connect to a Hanzo S3 server and call Storage Info Management API
 // to fetch server's information represented by StorageInfo structure
 func (adm *AdminClient) StorageInfo(ctx context.Context) (StorageInfo, error) {
 	resp, err := adm.executeMethod(ctx, http.MethodGet, requestData{relPath: adminAPIPrefix + "/storageinfo"})
@@ -281,7 +281,7 @@ type InfoMessage struct {
 }
 
 func (info InfoMessage) BackendType() BackendType {
-	// MinIO server type default
+	// Hanzo S3 server type default
 	switch info.Backend.Type {
 	case "Erasure":
 		return Erasure
@@ -481,7 +481,7 @@ type ServerProperties struct {
 	RestartingSince time.Time  `json:"restarting_since,omitempty"`
 }
 
-// MemStats is strip down version of runtime.MemStats containing memory stats of MinIO server.
+// MemStats is strip down version of runtime.MemStats containing memory stats of Hanzo S3 server.
 type MemStats struct {
 	Alloc      uint64
 	TotalAlloc uint64
@@ -605,7 +605,7 @@ func Uncached() func(*ServerInfoOpts) {
 	}
 }
 
-// ServerInfo - Connect to a minio server and call Server Admin Info Management API
+// ServerInfo - Connect to a Hanzo S3 server and call Server Admin Info Management API
 // to fetch server's information represented by infoMessage structure
 func (adm *AdminClient) ServerInfo(ctx context.Context, options ...func(*ServerInfoOpts)) (InfoMessage, error) {
 	srvOpts := &ServerInfoOpts{}

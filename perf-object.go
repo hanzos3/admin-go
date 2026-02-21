@@ -1,7 +1,7 @@
 //
-// Copyright (c) 2015-2024 MinIO, Inc.
+// Copyright (c) 2015-2024 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -69,7 +69,7 @@ type SpeedtestOpts struct {
 	EnableSha256 bool          // Enable calculating sha256 for uploads
 }
 
-// Speedtest - perform speedtest on the MinIO servers
+// Speedtest - perform speedtest on the Hanzo S3 servers
 func (adm *AdminClient) Speedtest(ctx context.Context, opts SpeedtestOpts) (chan SpeedTestResult, error) {
 	if !opts.Autotune {
 		if opts.Duration <= time.Second {

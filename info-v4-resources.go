@@ -1,7 +1,7 @@
 //
-// Copyright (c) 2015-2025 MinIO, Inc.
+// Copyright (c) 2015-2025 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -122,7 +122,7 @@ type PoolLayout struct {
 	DrivesHealing int `json:"drivesHealing" msg:"dh"`
 }
 
-// ClusterResource represents comprehensive high-level information about the MinIO cluster
+// ClusterResource represents comprehensive high-level information about the Hanzo S3 cluster
 type ClusterResource struct {
 	Mode              string       `json:"mode" msg:"m"`
 	Domains           []string     `json:"domains,omitempty" msg:"d,omitempty"`
@@ -192,7 +192,7 @@ type DriveCounts struct {
 	Unformatted int `json:"unformatted" msg:"uf"`
 }
 
-// NodeResource represents detailed information about a MinIO server node including version, state, and drive counts
+// NodeResource represents detailed information about a Hanzo S3 server node including version, state, and drive counts
 type NodeResource struct {
 	Host         string      `json:"host" msg:"h"`
 	Version      string      `json:"version" msg:"v"`

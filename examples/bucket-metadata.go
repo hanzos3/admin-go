@@ -1,8 +1,8 @@
 //go:build ignore
 
-// Copyright (c) 2015-2022 MinIO, Inc.
+// Copyright (c) 2015-2022 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -32,9 +32,9 @@ func main() {
 	// dummy values, please replace them with original values.
 
 	// API requests are secure (HTTPS) if secure=true and insecure (HTTP) otherwise.
-	// New returns an MinIO Admin client object.
+	// New returns a Hanzo S3 Admin client object.
 	bucket := "bucket"
-	client, err := madmin.New("your-minio.example.com:9000", "YOUR-ACCESSKEYID", "YOUR-SECRETACCESSKEY", true)
+	client, err := madmin.New("your-s3.example.com:9000", "YOUR-ACCESSKEYID", "YOUR-SECRETACCESSKEY", true)
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -45,7 +45,7 @@ func main() {
 	}
 
 	// set bucket metadata to bucket on a new cluster
-	client2, err := madmin.New("your-minio.example.com:9001", "YOUR-ACCESSKEYID", "YOUR-SECRETACCESSKEY", true)
+	client2, err := madmin.New("your-s3.example.com:9001", "YOUR-ACCESSKEYID", "YOUR-SECRETACCESSKEY", true)
 	if err != nil {
 		log.Fatalln(err)
 	}

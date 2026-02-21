@@ -1,7 +1,7 @@
 //
-// Copyright (c) 2015-2025 MinIO, Inc.
+// Copyright (c) 2015-2025 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -42,7 +42,7 @@ type ErrorLogOpts struct {
 	MaxPerNode int           `json:"maxPerNode,omitempty"`
 }
 
-// GetErrorLogs fetches the persisted error logs from MinIO
+// GetErrorLogs fetches the persisted error logs from Hanzo S3
 func (adm AdminClient) GetErrorLogs(ctx context.Context, opts ErrorLogOpts) iter.Seq2[log.Error, error] {
 	return func(yield func(log.Error, error) bool) {
 		errOpts, err := json.Marshal(opts)

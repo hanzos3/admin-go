@@ -1,7 +1,7 @@
 //
-// Copyright (c) 2015-2024 MinIO, Inc.
+// Copyright (c) 2015-2024 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -26,7 +26,7 @@ import (
 	"net/http"
 )
 
-// GetConfig - returns the config.json of a minio setup, incoming data is encrypted.
+// GetConfig - returns the config.json of a Hanzo S3 setup, incoming data is encrypted.
 func (adm *AdminClient) GetConfig(ctx context.Context) ([]byte, error) {
 	// Execute GET on /minio/admin/v4/config to get config of a setup.
 	resp, err := adm.executeMethod(ctx,

@@ -1,7 +1,7 @@
 //
-// Copyright (c) 2015-2024 MinIO, Inc.
+// Copyright (c) 2015-2024 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -36,7 +36,7 @@ const (
 	prometheusIssuer           = "prometheus"
 )
 
-// MetricsClient implements MinIO metrics operations
+// MetricsClient implements Hanzo S3 metrics operations
 type MetricsClient struct {
 	/// Credentials for authentication
 	creds *credentials.Credentials
@@ -54,7 +54,7 @@ type metricsRequestData struct {
 	relativePath string // URL path relative to admin API base endpoint
 }
 
-// NewMetricsClientWithOptions - instantiate minio metrics client honoring Prometheus format
+// NewMetricsClientWithOptions - instantiate Hanzo S3 metrics client honoring Prometheus format
 func NewMetricsClientWithOptions(endpoint string, opts *Options) (*MetricsClient, error) {
 	if opts == nil {
 		return nil, ErrInvalidArgument("empty options not allowed")
@@ -72,7 +72,7 @@ func NewMetricsClientWithOptions(endpoint string, opts *Options) (*MetricsClient
 	return clnt, nil
 }
 
-// getPrometheusToken creates a JWT from MinIO access and secret keys
+// getPrometheusToken creates a JWT from Hanzo S3 access and secret keys
 func getPrometheusToken(accessKey, secretKey string) (string, error) {
 	jwt := jwtgo.NewWithClaims(jwtgo.SigningMethodHS512, jwtgo.RegisteredClaims{
 		ExpiresAt: jwtgo.NewNumericDate(time.Now().UTC().Add(defaultPrometheusJWTExpiry)),

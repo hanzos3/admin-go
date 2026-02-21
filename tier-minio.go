@@ -1,7 +1,7 @@
 //
-// Copyright (c) 2015-2024 MinIO, Inc.
+// Copyright (c) 2015-2024 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -21,7 +21,7 @@ package madmin
 
 //go:generate msgp -d clearomitted -d "timezone utc" -file $GOFILE
 
-// TierMinIO represents the remote tier configuration for MinIO object storage backend.
+// TierMinIO represents the remote tier configuration for Hanzo S3 object storage backend.
 type TierMinIO struct {
 	Endpoint  string `json:",omitempty"`
 	AccessKey string `json:",omitempty"`

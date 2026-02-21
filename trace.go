@@ -1,7 +1,7 @@
 //
-// Copyright (c) 2015-2024 MinIO, Inc.
+// Copyright (c) 2015-2024 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -34,7 +34,7 @@ type TraceType uint64
 const (
 	// TraceOS tracing (Golang os package calls)
 	TraceOS TraceType = 1 << iota
-	// TraceStorage tracing (MinIO Storage Layer)
+	// TraceStorage tracing (Hanzo S3 Storage Layer)
 	TraceStorage
 	// TraceS3 provides tracing of S3 API calls
 	TraceS3
@@ -56,11 +56,11 @@ const (
 	TraceRebalance
 	// TraceReplicationResync will trace replication resync operations.
 	TraceReplicationResync
-	// TraceBootstrap will trace events during MinIO cluster bootstrap
+	// TraceBootstrap will trace events during Hanzo S3 cluster bootstrap
 	TraceBootstrap
-	// TraceFTP will trace events from MinIO FTP Server
+	// TraceFTP will trace events from Hanzo S3 FTP Server
 	TraceFTP
-	// TraceILM will trace events during MinIO ILM operations
+	// TraceILM will trace events during Hanzo S3 ILM operations
 	TraceILM
 	// TraceKMS are traces for interactions with KMS.
 	TraceKMS

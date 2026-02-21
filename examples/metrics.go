@@ -1,10 +1,10 @@
 //go:build ignore
 
 /*
- * MinIO Metrics Collection Example
+ * Hanzo S3 Metrics Collection Example
  *
  * This example demonstrates how to use the AdminClient.Metrics() function to collect
- * real-time metrics from MinIO servers. It supports various metric types including
+ * real-time metrics from Hanzo S3 servers. It supports various metric types including
  * memory, CPU, disk, network, process, and OS sensors.
  *
  * Features:
@@ -25,9 +25,9 @@
  */
 
 //
-// Copyright (c) 2015-2025 MinIO, Inc.
+// Copyright (c) 2015-2025 Hanzo AI, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of Hanzo S3 stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -61,9 +61,9 @@ import (
 
 // Command line flags
 var (
-	endpoint     = flag.String("endpoint", "localhost:9000", "MinIO server endpoint")
-	accessKey    = flag.String("access-key", "", "MinIO access key")
-	secretKey    = flag.String("secret-key", "", "MinIO secret key")
+	endpoint     = flag.String("endpoint", "localhost:9000", "Hanzo S3 server endpoint")
+	accessKey    = flag.String("access-key", "", "Hanzo S3 access key")
+	secretKey    = flag.String("secret-key", "", "Hanzo S3 secret key")
 	useSSL       = flag.Bool("ssl", false, "Use HTTPS connection")
 	insecure     = flag.Bool("insecure", false, "Skip SSL certificate verification")
 	interval     = flag.Duration("interval", 1*time.Second, "Interval between metric collections")
@@ -84,12 +84,12 @@ var (
 func main() {
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, "Usage: %s [options]\n", os.Args[0])
-		fmt.Fprintf(os.Stderr, "\nCollect and display MinIO server metrics with comprehensive options.\n\n")
+		fmt.Fprintf(os.Stderr, "\nCollect and display Hanzo S3 server metrics with comprehensive options.\n\n")
 		fmt.Fprintf(os.Stderr, "Options:\n")
 		flag.PrintDefaults()
 		fmt.Fprintf(os.Stderr, "\nExamples:\n")
 		fmt.Fprintf(os.Stderr, "  # Basic usage with memory and CPU metrics\n")
-		fmt.Fprintf(os.Stderr, "  %s -endpoint play.min.io -access-key minioadmin -secret-key minioadmin\n\n", os.Args[0])
+		fmt.Fprintf(os.Stderr, "  %s -endpoint s3.hanzo.ai -access-key minioadmin -secret-key minioadmin\n\n", os.Args[0])
 		fmt.Fprintf(os.Stderr, "  # Collect all metric types for 30 seconds\n")
 		fmt.Fprintf(os.Stderr, "  %s -types all -duration 30s\n\n", os.Args[0])
 		fmt.Fprintf(os.Stderr, "  # JSON output with specific hosts and by-host breakdown\n")
