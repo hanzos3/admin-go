@@ -12,6 +12,7 @@ package main
 import (
     "fmt"
 
+    // Note: The Go module path remains github.com/minio/madmin-go for upstream compatibility.
     "github.com/minio/madmin-go/v4"
 )
 
@@ -19,7 +20,7 @@ func main() {
     // Use a secure connection.
     ssl := true
 
-    // Initialize admin client object.
+    // Initialize Hanzo S3 admin client object.
     mdmClnt, err := madmin.New("your-s3.example.com:9000", "YOUR-ACCESSKEYID", "YOUR-SECRETKEY", ssl)
     if err != nil {
         fmt.Println(err)
@@ -38,7 +39,9 @@ func main() {
 
 ## Documentation
 
-All documentation is available [here](https://pkg.go.dev/github.com/minio/madmin-go/v4)
+All documentation is available [here](https://pkg.go.dev/github.com/minio/madmin-go/v4).
+
+> Note: The Go module path remains `github.com/minio/madmin-go` for upstream compatibility.
 
 ## License
 
