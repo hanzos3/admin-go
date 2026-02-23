@@ -463,8 +463,8 @@ type ServerProperties struct {
 	GoMaxProcs          int               `json:"go_max_procs,omitempty"`
 	NumCPU              int               `json:"num_cpu,omitempty"`
 	RuntimeVersion      string            `json:"runtime_version,omitempty"`
-	MinioEnvVars        map[string]string `json:"minio_env_vars,omitempty"`
-	MinioEnvHash        string            `json:"minio_env_hash,omitempty"`
+	MinioEnvVars        map[string]string `json:"s3_env_vars,omitempty"`
+	MinioEnvHash        string            `json:"s3_env_hash,omitempty"`
 	Edition             string            `json:"edition"`
 	License             *LicenseInfo      `json:"license,omitempty"`
 	IsLeader            bool              `json:"is_leader"`

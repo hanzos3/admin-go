@@ -35,13 +35,13 @@ import (
 
 func main() {
 	// Initialize admin client
-	endpoint := getEnvOrDefault("MINIO_ENDPOINT", "localhost:9000")
-	accessKey := getEnvOrDefault("MINIO_ACCESS_KEY", "minioadmin")
-	secretKey := getEnvOrDefault("MINIO_SECRET_KEY", "minioadmin")
-	useSSL := getEnvOrDefault("MINIO_USE_SSL", "false") == "true"
+	endpoint := getEnvOrDefault("S3_ENDPOINT", "localhost:9000")
+	accessKey := getEnvOrDefault("S3_ACCESS_KEY", "minioadmin")
+	secretKey := getEnvOrDefault("S3_SECRET_KEY", "minioadmin")
+	useSSL := getEnvOrDefault("S3_USE_SSL", "false") == "true"
 
 	if accessKey == "" || secretKey == "" {
-		log.Fatal("Please set MINIO_ACCESS_KEY and MINIO_SECRET_KEY environment variables")
+		log.Fatal("Please set S3_ACCESS_KEY and S3_SECRET_KEY environment variables")
 	}
 
 	// Create admin client

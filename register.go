@@ -34,8 +34,8 @@ type ClusterRegistrationInfo struct {
 	// The "info" sub-node of the cluster registration information struct
 	// Intended to be extensible i.e. more fields will be added as and when required
 	Info struct {
-		MinioVersion    string `json:"minio_version"`
-		MinioCommitID   string `json:"minio_commit_id,omitempty"`
+		MinioVersion    string `json:"s3_version"`
+		MinioCommitID   string `json:"s3_commit_id,omitempty"`
 		NoOfServerPools int    `json:"no_of_server_pools"`
 		NoOfServers     int    `json:"no_of_servers"`
 		NoOfDrives      int    `json:"no_of_drives"`

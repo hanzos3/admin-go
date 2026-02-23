@@ -65,8 +65,8 @@ func TestParseServerConfigOutput(t *testing.T) {
 		},
 		{
 			Name: "single target config + env",
-			Config: `# MINIO_SUBNET_API_KEY=xxx
-# MINIO_SUBNET_LICENSE=2
+			Config: `# S3_SUBNET_API_KEY=xxx
+# S3_SUBNET_LICENSE=2
 subnet license=1 api_key= proxy=`,
 			Expected: []SubsysConfig{
 				{
@@ -77,7 +77,7 @@ subnet license=1 api_key= proxy=`,
 							Key:   "api_key",
 							Value: "",
 							EnvOverride: &EnvOverride{
-								Name:  "MINIO_SUBNET_API_KEY",
+								Name:  "S3_SUBNET_API_KEY",
 								Value: "xxx",
 							},
 						},
@@ -85,7 +85,7 @@ subnet license=1 api_key= proxy=`,
 							Key:   "license",
 							Value: "1",
 							EnvOverride: &EnvOverride{
-								Name:  "MINIO_SUBNET_LICENSE",
+								Name:  "S3_SUBNET_LICENSE",
 								Value: "2",
 							},
 						},

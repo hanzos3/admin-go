@@ -220,7 +220,7 @@ const (
 
 	Default = `_`
 
-	EnvPrefix        = "MINIO_"
+	EnvPrefix        = "S3_"
 	EnvWordDelimiter = `_`
 
 	EnvLinePrefix = KvComment + KvSpaceSeparator + EnvPrefix
@@ -321,7 +321,7 @@ func (c *SubsysConfig) GetEnvOverrides() []EnvOverride {
 }
 
 var (
-	ErrInvalidEnvVarLine = errors.New("expected env var line of the form `# MINIO_...=...`")
+	ErrInvalidEnvVarLine = errors.New("expected env var line of the form `# S3_...=...`")
 	ErrInvalidConfigKV   = errors.New("expected config value in the format `key=value`")
 )
 
@@ -483,10 +483,10 @@ func ParseServerConfigOutput(serverConfigOutput string) ([]SubsysConfig, error) 
 	//   example, "site region=us-east-1" or "identity_openid:okta k1=v1 k2=v2".
 	//
 	//   2. A comment line showing an environment variable set on the server.
-	//   For example "# MINIO_SITE_NAME=my-cluster".
+	//   For example "# S3_SITE_NAME=my-cluster".
 	//
 	//   3. Comment lines with other content. These will not start with `#
-	//   MINIO_`.
+	//   S3_`.
 	//
 	// For the structured JSON representation, only lines of type 1 and 2 are
 	// required as they correspond to configuration specified by an

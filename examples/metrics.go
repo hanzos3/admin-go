@@ -124,21 +124,21 @@ func main() {
 
 	// Get credentials from environment if not provided via flags
 	if *accessKey == "" {
-		*accessKey = os.Getenv("MINIO_ACCESS_KEY")
+		*accessKey = os.Getenv("S3_ACCESS_KEY")
 		if *accessKey == "" {
-			*accessKey = os.Getenv("MINIO_ROOT_USER")
+			*accessKey = os.Getenv("S3_ROOT_USER")
 		}
 	}
 	if *secretKey == "" {
-		*secretKey = os.Getenv("MINIO_SECRET_KEY")
+		*secretKey = os.Getenv("S3_SECRET_KEY")
 		if *secretKey == "" {
-			*secretKey = os.Getenv("MINIO_ROOT_PASSWORD")
+			*secretKey = os.Getenv("S3_ROOT_PASSWORD")
 		}
 	}
 
 	if *accessKey == "" || *secretKey == "" {
 		fmt.Fprintf(os.Stderr, "Error: Access key and secret key are required\n")
-		fmt.Fprintf(os.Stderr, "Provide them via -access-key/-secret-key flags or MINIO_ACCESS_KEY/MINIO_SECRET_KEY environment variables\n")
+		fmt.Fprintf(os.Stderr, "Provide them via -access-key/-secret-key flags or S3_ACCESS_KEY/S3_SECRET_KEY environment variables\n")
 		os.Exit(1)
 	}
 

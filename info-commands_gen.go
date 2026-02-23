@@ -11317,7 +11317,7 @@ func (z *ServerProperties) DecodeMsg(dc *msgp.Reader) (err error) {
 				return
 			}
 			zb0001Mask |= 0x1000
-		case "minio_env_vars":
+		case "s3_env_vars":
 			var zb0005 uint32
 			zb0005, err = dc.ReadMapHeader()
 			if err != nil {
@@ -11346,7 +11346,7 @@ func (z *ServerProperties) DecodeMsg(dc *msgp.Reader) (err error) {
 				z.MinioEnvVars[za0005] = za0006
 			}
 			zb0001Mask |= 0x2000
-		case "minio_env_hash":
+		case "s3_env_hash":
 			z.MinioEnvHash, err = dc.ReadString()
 			if err != nil {
 				err = msgp.WrapError(err, "MinioEnvHash")
@@ -11865,7 +11865,7 @@ func (z *ServerProperties) EncodeMsg(en *msgp.Writer) (err error) {
 			}
 		}
 		if (zb0001Mask & 0x4000) == 0 { // if not omitted
-			// write "minio_env_vars"
+			// write "s3_env_vars"
 			err = en.Append(0xae, 0x6d, 0x69, 0x6e, 0x69, 0x6f, 0x5f, 0x65, 0x6e, 0x76, 0x5f, 0x76, 0x61, 0x72, 0x73)
 			if err != nil {
 				return
@@ -11889,7 +11889,7 @@ func (z *ServerProperties) EncodeMsg(en *msgp.Writer) (err error) {
 			}
 		}
 		if (zb0001Mask & 0x8000) == 0 { // if not omitted
-			// write "minio_env_hash"
+			// write "s3_env_hash"
 			err = en.Append(0xae, 0x6d, 0x69, 0x6e, 0x69, 0x6f, 0x5f, 0x65, 0x6e, 0x76, 0x5f, 0x68, 0x61, 0x73, 0x68)
 			if err != nil {
 				return
@@ -12268,7 +12268,7 @@ func (z *ServerProperties) MarshalMsg(b []byte) (o []byte, err error) {
 			o = msgp.AppendString(o, z.RuntimeVersion)
 		}
 		if (zb0001Mask & 0x4000) == 0 { // if not omitted
-			// string "minio_env_vars"
+			// string "s3_env_vars"
 			o = append(o, 0xae, 0x6d, 0x69, 0x6e, 0x69, 0x6f, 0x5f, 0x65, 0x6e, 0x76, 0x5f, 0x76, 0x61, 0x72, 0x73)
 			o = msgp.AppendMapHeader(o, uint32(len(z.MinioEnvVars)))
 			for za0005, za0006 := range z.MinioEnvVars {
@@ -12277,7 +12277,7 @@ func (z *ServerProperties) MarshalMsg(b []byte) (o []byte, err error) {
 			}
 		}
 		if (zb0001Mask & 0x8000) == 0 { // if not omitted
-			// string "minio_env_hash"
+			// string "s3_env_hash"
 			o = append(o, 0xae, 0x6d, 0x69, 0x6e, 0x69, 0x6f, 0x5f, 0x65, 0x6e, 0x76, 0x5f, 0x68, 0x61, 0x73, 0x68)
 			o = msgp.AppendString(o, z.MinioEnvHash)
 		}
@@ -12535,7 +12535,7 @@ func (z *ServerProperties) UnmarshalMsg(bts []byte) (o []byte, err error) {
 				return
 			}
 			zb0001Mask |= 0x1000
-		case "minio_env_vars":
+		case "s3_env_vars":
 			var zb0005 uint32
 			zb0005, bts, err = msgp.ReadMapHeaderBytes(bts)
 			if err != nil {
@@ -12564,7 +12564,7 @@ func (z *ServerProperties) UnmarshalMsg(bts []byte) (o []byte, err error) {
 				z.MinioEnvVars[za0005] = za0006
 			}
 			zb0001Mask |= 0x2000
-		case "minio_env_hash":
+		case "s3_env_hash":
 			z.MinioEnvHash, bts, err = msgp.ReadStringBytes(bts)
 			if err != nil {
 				err = msgp.WrapError(err, "MinioEnvHash")

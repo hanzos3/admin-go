@@ -1359,7 +1359,7 @@ type ServerInfo struct {
 	GoMaxProcs     int               `json:"go_max_procs"`
 	NumCPU         int               `json:"num_cpu"`
 	RuntimeVersion string            `json:"runtime_version"`
-	MinioEnvVars   map[string]string `json:"minio_env_vars,omitempty"`
+	MinioEnvVars   map[string]string `json:"s3_env_vars,omitempty"`
 	Edition        string            `json:"edition"`
 	License        *LicenseInfo      `json:"license,omitempty"`
 	APIVersion     *APIVersion       `json:"api_version,omitempty"`
